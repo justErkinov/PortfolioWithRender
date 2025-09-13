@@ -127,6 +127,16 @@ STATICFILES_DIRS = [
 # collectstatic buyrug‘i orqali static fayllar yig‘iladigan yakuniy papka
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # 👈 bu juda muhim
+    ...
+]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
